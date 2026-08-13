@@ -27,6 +27,7 @@ to run on a machine that already has configs.
 | `make git` | Symlinks `base.gitconfig` to `~/.config/git/config` and `work.gitconfig` next to it |
 | `make zellij` | Symlinks `zellij/` to `~/.config/zellij` (Ctrl+h unbound to not shadow Neovim window navigation) |
 | `make zsh` | Symlinks `.zshrc` + `.zshenv` to `~`, clones oh-my-zsh if missing |
+| `make alacritty` | Symlinks `alacritty/` to `~/.config/alacritty` (expects the GoogleSansCode Nerd Font to be installed) |
 
 ### Git identity switching
 
@@ -46,12 +47,13 @@ inside any repo. To add another work directory, add another `includeIf` block.
 │   ├── editors.mk     # nvim (more editors later)
 │   ├── gitconfigs.mk  # git identity + config
 │   ├── shell.mk       # zsh + oh-my-zsh
-│   ├── terminal.mk    # zellij (alacritty later)
+│   ├── terminal.mk    # zellij + alacritty
 │   └── targets.mk     # high-level bundles (`make all`)
 ├── .zshrc             # zsh config (oh-my-zsh, zellij auto-start, mise)
 ├── .zshenv            # zsh env (cargo)
 ├── base.gitconfig     # global git config, personal identity by default
 ├── work.gitconfig     # work-email override for repos under ~/salonized/
+├── alacritty/         # Alacritty configuration
 ├── nvim/              # Neovim configuration
 └── zellij/            # Zellij configuration
 ```
