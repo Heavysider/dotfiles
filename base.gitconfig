@@ -1,0 +1,14 @@
+# Global git config, symlinked to ~/.config/git/config by `make git`.
+# Personal identity is the default; work identity is layered on top for
+# repos under the work directory (see includeIf at the bottom).
+
+[user]
+	name = Oleksandr Savchyn
+	email = alex.savchin@gmail.com
+
+[init]
+	defaultBranch = main
+
+# Work config overrides the settings above for any repo under ~/salonized/
+[includeIf "gitdir:~/salonized/"]
+	path = work.gitconfig

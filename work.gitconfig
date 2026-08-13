@@ -1,0 +1,5 @@
+# Work-specific overrides, included by base.gitconfig for repos under
+# ~/salonized/. Only differs from personal in the email (for now).
+
+[user]
+	email = oleksandr.savchyn@treatwell.com
