@@ -25,6 +25,7 @@ to run on a machine that already has configs.
 | --- | --- |
 | `make nvim` | Symlinks `nvim/` to `~/.config/nvim` (LazyVim config, plugin versions pinned via `lazy-lock.json`) |
 | `make git` | Symlinks `base.gitconfig` to `~/.config/git/config` and `work.gitconfig` next to it |
+| `make zellij` | Symlinks `zellij/` to `~/.config/zellij` (Ctrl+h unbound to not shadow Neovim window navigation) |
 
 ### Git identity switching
 
@@ -43,10 +44,12 @@ inside any repo. To add another work directory, add another `includeIf` block.
 ├── makefiles/         # one .mk module per tool, auto-included by the Makefile
 │   ├── editors.mk     # nvim (more editors later)
 │   ├── gitconfigs.mk  # git identity + config
+│   ├── terminal.mk    # zellij (alacritty later)
 │   └── targets.mk     # high-level bundles (`make all`)
 ├── base.gitconfig     # global git config, personal identity by default
 ├── work.gitconfig     # work-email override for repos under ~/salonized/
-└── nvim/              # Neovim configuration
+├── nvim/              # Neovim configuration
+└── zellij/            # Zellij configuration
 ```
 
 ## Adding a new component
