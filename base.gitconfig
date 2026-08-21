@@ -9,6 +9,11 @@
 [init]
 	defaultBranch = main
 
+[push]
+	# `git push` on a branch with no upstream creates it on the remote
+	# instead of erroring (same as --set-upstream origin <branch>)
+	autoSetupRemote = true
+
 # Work config overrides the settings above for any repo under ~/salonized/
 [includeIf "gitdir:~/salonized/"]
 	path = work.gitconfig
