@@ -28,6 +28,7 @@ to run on a machine that already has configs.
 | `make zellij` | Symlinks `zellij/` to `~/.config/zellij` (Ctrl+h unbound to not shadow Neovim window navigation) |
 | `make zsh` | Symlinks `.zshrc` + `.zshenv` to `~`, clones oh-my-zsh if missing |
 | `make alacritty` | Symlinks `alacritty/` to `~/.config/alacritty` (expects the GoogleSansCode Nerd Font to be installed) |
+| `make mise` | Symlinks `.default-gems` to `~/.default-gems` so every Ruby that mise installs gets `ruby-lsp` (Neovim runs the gem-installed server, see below) |
 
 ### Git identity switching
 
@@ -38,6 +39,15 @@ the email to `oleksandr.savchyn@treatwell.com`. Nothing to configure per repo �
 identity follows the repo's location on disk. Check with `git config user.email`
 inside any repo. To add another work directory, add another `includeIf` block.
 
+### Ruby LSP follows the project Ruby
+
+Neovim runs the `ruby-lsp` gem from whatever Ruby mise activates for the
+current project, not a Mason copy. A fresh Ruby installed by mise has no gems,
+so without `~/.default-gems` the LSP silently stops working after every Ruby
+upgrade. mise reads that file on `mise install ruby@<version>` and runs
+`gem install` for each line. For an already-installed Ruby, run
+`mise exec -- gem install ruby-lsp` inside the project once.
+
 ## Structure
 
 ```
@@ -46,11 +56,13 @@ inside any repo. To add another work directory, add another `includeIf` block.
 ├── makefiles/         # one .mk module per tool, auto-included by the Makefile
 │   ├── editors.mk     # nvim (more editors later)
 │   ├── gitconfigs.mk  # git identity + config
+│   ├── mise.mk        # mise default gems
 │   ├── shell.mk       # zsh + oh-my-zsh
 │   ├── terminal.mk    # zellij + alacritty
 │   └── targets.mk     # high-level bundles (`make all`)
 ├── .zshrc             # zsh config (oh-my-zsh, zellij auto-start, mise)
 ├── .zshenv            # zsh env (cargo)
+├── .default-gems      # gems mise installs into every new Ruby (ruby-lsp)
 ├── base.gitconfig     # global git config, personal identity by default
 ├── work.gitconfig     # work-email override for repos under ~/salonized/
 ├── alacritty/         # Alacritty configuration
