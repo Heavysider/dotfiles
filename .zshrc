@@ -70,7 +70,12 @@ ZSH_THEME=robbyrussell
 # Custom plugins may be added to $ZSH_CUSTOM/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(git)
+plugins=(git vi-mode)
+
+# vi-mode settings (must be set before oh-my-zsh is sourced)
+VI_MODE_SET_CURSOR=true                   # beam cursor in insert, block in normal
+VI_MODE_RESET_PROMPT_ON_MODE_CHANGE=true  # redraw the <<< normal-mode indicator
+KEYTIMEOUT=1                              # switch to normal mode instantly on Esc
 
 source $ZSH/oh-my-zsh.sh
 
