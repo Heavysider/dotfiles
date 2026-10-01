@@ -8,6 +8,10 @@ return {
       servers = {
         ruby_lsp = {
           mason = false,
+          -- Root at the nearest Gemfile.lock, not the nearest Gemfile: monorepo
+          -- components (e.g. salonized/components/*) ship a Gemfile with a
+          -- gitignored lockfile, and ruby-lsp refuses to start without one.
+          root_markers = { "Gemfile.lock", "Gemfile", ".git" },
         },
         -- ruby-lsp already runs RuboCop through the project bundle (diagnostics
         -- and formatting, with the repo's plugin gems). The extra's standalone
