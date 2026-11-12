@@ -5,3 +5,31 @@ onboarding = false
 
 [ui.toast]
 delivery = "off"
+
+[keys]
+# Prefix-free pane focus on ctrl+alt+h/j/k/l, keeping the prefix+h/j/k/l
+# defaults. All direct chords sit on keyboard layer 5 (hold Enter). ctrl+alt chords survive macOS option composing and don't clash with
+# Neovim's ctrl+h/j/k/l.
+focus_pane_left = ["prefix+h", "ctrl+alt+h"]
+focus_pane_down = ["prefix+j", "ctrl+alt+j"]
+focus_pane_up = ["prefix+k", "ctrl+alt+k"]
+focus_pane_right = ["prefix+l", "ctrl+alt+l"]
+
+# Prefix-free splits, Vim-style: v opens a pane to the right (:vsplit), s one
+# below (:split). Keeps the prefix+v and prefix+minus defaults.
+split_vertical = ["prefix+v", "ctrl+alt+v"]
+split_horizontal = ["prefix+minus", "ctrl+alt+s"]
+
+# Prefix-free tabs: t opens one (like cmd+t), n/p go to the next/previous one,
+# matching the prefix+c/n/p defaults that stay bound.
+new_tab = ["prefix+c", "ctrl+alt+t"]
+next_tab = ["prefix+n", "ctrl+alt+n"]
+previous_tab = ["prefix+p", "ctrl+alt+p"]
+
+# Workspace sidebar navigation (prefix+w): vim-style j/k move between workspaces
+# instead of the arrows. herdr disables the later of two clashing navigate keys,
+# and pane up/down default to j/k there too, so those move to ctrl+j/ctrl+k.
+navigate_workspace_up = "k"
+navigate_workspace_down = "j"
+navigate_pane_up = "ctrl+k"
+navigate_pane_down = "ctrl+j"
