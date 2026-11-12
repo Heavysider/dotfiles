@@ -26,7 +26,8 @@ to run on a machine that already has configs.
 | `make nvim` | Symlinks `nvim/` to `~/.config/nvim` (LazyVim config, plugin versions pinned via `lazy-lock.json`) |
 | `make git` | Symlinks `base.gitconfig` to `~/.config/git/config` and `work.gitconfig` next to it |
 | `make zsh` | Symlinks `.zshrc` + `.zshenv` to `~`, clones oh-my-zsh if missing |
-| `make ghostty` | Symlinks `ghostty/` to `~/.config/ghostty` (Option+arrow moves focus between splits) |
+| `make ghostty` | Symlinks `ghostty/` to `~/.config/ghostty`; every window runs `herdr`, attaching to its persistent session (Option+arrow moves focus between splits) |
+| `make herdr` | Installs [herdr](https://herdr.dev) (agent-aware pane manager), symlinks `herdr/config.toml` to `~/.config/herdr/config.toml`, and installs its Claude Code hook and `herdr` skill. Rerun after upgrading herdr |
 | `make mise` | Symlinks `.default-gems` to `~/.default-gems` so every Ruby that mise installs gets `ruby-lsp` (Neovim runs the gem-installed server, see below) |
 
 ### Git identity switching
@@ -57,7 +58,7 @@ upgrade. mise reads that file on `mise install ruby@<version>` and runs
 │   ├── gitconfigs.mk  # git identity + config
 │   ├── mise.mk        # mise default gems
 │   ├── shell.mk       # zsh + oh-my-zsh
-│   ├── terminal.mk    # ghostty
+│   ├── terminal.mk    # ghostty + herdr
 │   └── targets.mk     # high-level bundles (`make all`)
 ├── .zshrc             # zsh config (oh-my-zsh, vi-mode, mise)
 ├── .zshenv            # zsh env (cargo)
@@ -65,6 +66,7 @@ upgrade. mise reads that file on `mise install ruby@<version>` and runs
 ├── base.gitconfig     # global git config, personal identity by default
 ├── work.gitconfig     # work-email override for repos under ~/salonized/
 ├── ghostty/           # Ghostty configuration
+├── herdr/             # herdr configuration
 └── nvim/              # Neovim configuration
 ```
 

@@ -1,0 +1,7 @@
+onboarding = false
+# herdr config. Only set what differs from the defaults; `herdr --default-config`
+# prints every option with docs, or see https://herdr.dev/docs/configuration/.
+# Apply changes to a running server with `herdr server reload-config`.
+
+[ui.toast]
+delivery = "off"

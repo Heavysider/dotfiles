@@ -110,3 +110,8 @@ source $ZSH/oh-my-zsh.sh
 export PATH="$HOME/.local/bin:$PATH"
 eval "$(mise activate zsh)"
 export OBJC_DISABLE_INITIALIZE_FORK_SAFETY=YES
+
+# herdr panes report TERM_PROGRAM=herdr, so Claude Code doesn't know the outer
+# terminal (Ghostty) can draw images. herdr forwards kitty graphics, so force them
+# on, only inside herdr: in other terminals (VS Code) forced images print as boxes.
+[[ "$HERDR_ENV" == 1 ]] && export CLAUDE_CODE_FORCE_TERMINAL_IMAGES=1

@@ -9,3 +9,8 @@ keybind = performable:alt+arrow_left=goto_split:left
 keybind = performable:alt+arrow_right=goto_split:right
 keybind = performable:alt+arrow_up=goto_split:up
 keybind = performable:alt+arrow_down=goto_split:down
+
+# Every Ghostty window attaches to the persistent herdr session instead of a
+# bare shell; herdr owns the tabs and panes. Closing the window only detaches,
+# so work keeps running. Absolute path because GUI apps don't get Homebrew's PATH.
+command = /opt/homebrew/bin/herdr
