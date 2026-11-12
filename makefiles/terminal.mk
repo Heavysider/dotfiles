@@ -1,11 +1,6 @@
-# Terminal tooling setups (multiplexer, emulator, ...)
+# Terminal tooling setups (emulator)
 
-.PHONY: zellij
-zellij: ## Setup Zellij by symlinking zellij/ into XDG_CONFIG_HOME
+.PHONY: ghostty
+ghostty: ## Setup Ghostty by symlinking ghostty/ into XDG_CONFIG_HOME
 	$(call mkdir_safe,$(XDG_CONFIG_HOME))
-	$(call symlink_dir,zellij,$(XDG_CONFIG_HOME)/zellij)
-
-.PHONY: alacritty
-alacritty: ## Setup Alacritty by symlinking alacritty/ into XDG_CONFIG_HOME
-	$(call mkdir_safe,$(XDG_CONFIG_HOME))
-	$(call symlink_dir,alacritty,$(XDG_CONFIG_HOME)/alacritty)
+	$(call symlink_dir,ghostty,$(XDG_CONFIG_HOME)/ghostty)

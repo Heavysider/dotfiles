@@ -25,9 +25,8 @@ to run on a machine that already has configs.
 | --- | --- |
 | `make nvim` | Symlinks `nvim/` to `~/.config/nvim` (LazyVim config, plugin versions pinned via `lazy-lock.json`) |
 | `make git` | Symlinks `base.gitconfig` to `~/.config/git/config` and `work.gitconfig` next to it |
-| `make zellij` | Symlinks `zellij/` to `~/.config/zellij` (Ctrl+h unbound to not shadow Neovim window navigation) |
 | `make zsh` | Symlinks `.zshrc` + `.zshenv` to `~`, clones oh-my-zsh if missing |
-| `make alacritty` | Symlinks `alacritty/` to `~/.config/alacritty` (expects the GoogleSansCode Nerd Font to be installed) |
+| `make ghostty` | Symlinks `ghostty/` to `~/.config/ghostty` (Option+arrow moves focus between splits) |
 | `make mise` | Symlinks `.default-gems` to `~/.default-gems` so every Ruby that mise installs gets `ruby-lsp` (Neovim runs the gem-installed server, see below) |
 
 ### Git identity switching
@@ -58,16 +57,15 @@ upgrade. mise reads that file on `mise install ruby@<version>` and runs
 │   ├── gitconfigs.mk  # git identity + config
 │   ├── mise.mk        # mise default gems
 │   ├── shell.mk       # zsh + oh-my-zsh
-│   ├── terminal.mk    # zellij + alacritty
+│   ├── terminal.mk    # ghostty
 │   └── targets.mk     # high-level bundles (`make all`)
-├── .zshrc             # zsh config (oh-my-zsh, zellij auto-start, mise)
+├── .zshrc             # zsh config (oh-my-zsh, vi-mode, mise)
 ├── .zshenv            # zsh env (cargo)
 ├── .default-gems      # gems mise installs into every new Ruby (ruby-lsp)
 ├── base.gitconfig     # global git config, personal identity by default
 ├── work.gitconfig     # work-email override for repos under ~/salonized/
-├── alacritty/         # Alacritty configuration
-├── nvim/              # Neovim configuration
-└── zellij/            # Zellij configuration
+├── ghostty/           # Ghostty configuration
+└── nvim/              # Neovim configuration
 ```
 
 ## Adding a new component
@@ -79,4 +77,4 @@ upgrade. mise reads that file on `mise install ruby@<version>` and runs
    `$(call symlink_dir,...)` for whole directories.
 3. Add the target to `all` in `makefiles/targets.mk` and document it above.
 
-Planned: zsh, alacritty, Claude Code configs.
+Planned: Claude Code configs.

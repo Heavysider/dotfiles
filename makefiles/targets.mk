@@ -1,4 +1,4 @@
 # High-level targets that bundle individual modules
 
 .PHONY: all
-all: nvim git zellij zsh alacritty mise ## Setup everything
+all: nvim git zsh ghostty mise ## Setup everything

@@ -1,0 +1,11 @@
+# Ghostty config. Only set what differs from the defaults; see
+# `ghostty +show-config --default --docs` or https://ghostty.org/docs/config.
+# Reload while running with Cmd+Shift+comma.
+
+# Option+arrow moves focus between splits. `performable:` only takes the key
+# when there is a split in that direction, so with no split there Option+←/→
+# still jump words in the shell.
+keybind = performable:alt+arrow_left=goto_split:left
+keybind = performable:alt+arrow_right=goto_split:right
+keybind = performable:alt+arrow_up=goto_split:up
+keybind = performable:alt+arrow_down=goto_split:down
