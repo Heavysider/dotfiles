@@ -27,7 +27,3 @@ There are no tests or linters at the repo level. Neovim Lua is formatted per `nv
 - **Ghostty** reads `~/.config/ghostty/config.ghostty` (symlinked from the repo). It also loads `~/Library/Application Support/com.mitchellh.ghostty/config.ghostty` if present, which would override the repo copy, so keep that file absent.
 - **herdr** links only `config.toml`, not the directory, because herdr writes its logs into `~/.config/herdr/`. `make herdr` also runs `herdr integration install claude` (a `SessionStart` hook in `~/.claude/settings.json`) and writes `herdr --skill` to `~/.claude/skills/herdr/SKILL.md`; both are tied to the installed herdr version, so rerun the target after upgrading.
 - **Images inside herdr**: herdr panes report `TERM_PROGRAM=herdr`, so Claude Code won't send terminal images there even though herdr forwards kitty graphics to Ghostty. `.zshrc` sets `CLAUDE_CODE_FORCE_TERMINAL_IMAGES=1` only when `HERDR_ENV=1`. It is required (tested: the pokemon plugin falls back to half blocks without it), and the plugin also needs a one-off `/pokemon images on` since it has its own terminal-name check.
-
-## Commit conventions
-
-- Do not add the `Co-Authored-By: Claude` trailer to commits in this repo.
