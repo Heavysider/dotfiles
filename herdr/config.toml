@@ -3,8 +3,12 @@ onboarding = false
 # prints every option with docs, or see https://herdr.dev/docs/configuration/.
 # Apply changes to a running server with `herdr server reload-config`.
 
+[ui]
+# Create tabs immediately with generated names; rename later with prefix+shift+t.
+prompt_new_tab_name = false
+
 [ui.toast]
-delivery = "off"
+delivery = "herdr"
 
 [keys]
 # Prefix-free pane focus on ctrl+alt+h/j/k/l, keeping the prefix+h/j/k/l
@@ -33,3 +37,7 @@ navigate_workspace_up = "k"
 navigate_workspace_down = "j"
 navigate_pane_up = "ctrl+k"
 navigate_pane_down = "ctrl+j"
+
+[theme]
+name = "dracula"
+auto_switch = false
